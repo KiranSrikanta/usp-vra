@@ -1,0 +1,8 @@
+---
+applications:
+- name: usp-mean-auth
+  env:
+    NODE_ENV: production
+    GOOGLE_ID: 968838694248-p7vk8lo1f1c99novdt0e33sqmaqvcn82.apps.googleusercontent.com
+    GOOGLE_SECRET: lsmWC7juFvornQBYm1OEcGfz
+    DOMAIN: http://usp-mean-auth.cfapps.io
