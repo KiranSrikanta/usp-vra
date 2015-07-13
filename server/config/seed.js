@@ -9,6 +9,9 @@ var Thing = require('../api/thing/thing.model');
 var User = require('../api/user/user.model');
 var Misc = require('../api/misc/misc.model');
 var Product = require('../api/product/product.model')
+var Navigation = require('../api/navigation/navigation.model')
+var UserProfile = require('../api/userprofile/userprofile.model')
+
 Thing.find({}).remove(function() {
   Thing.create({
     name : 'Development Tools',
@@ -55,28 +58,361 @@ Misc.find({}).remove(function() {
 
 Product.find({}).remove(function() {
   Product.create({
-    Title: 'Apple iPhone 5S',
-    CapacityAndPrice: [{Capacity:'16GB', Price:'99'},
-      {Capacity:'32GB', Price:'149'}],
-    Features: 'Apple iPhone 5S is a smartphone that runs Apple\'s iOS 7. It has a 4-inch LED-backlit IPS LCD capacitive touchscreen with ~326 PPI density. The iPhone 5S features an 8 MP back camera and a 1.2 MP front camera. The phone is powered with 1.3 GHz dual-core Apple A7 processor',
-    Specifications: ['Apple iPhone 5S is a smartphone that runs Apple\'s iOS 7',
-      'Apple iPhone 5S',
-      'Apple iPhone 5S',
-      'Apple iPhone 5S'],
-    WeightAndDimensions: ['Apple iPhone 5S',
-      'Apple iPhone 5S',
-      'Apple iPhone 5S'],
-    WeightAndDimensionsImage: 'assets/images/width_descp_img.jpg',
-      Rating: 5,
-      Review: [{Author: 'John Doe',
-      Created: new Date(2015, 2, 28, 0, 0, 0, 0),
-      Title: 'I love it!!',
-      Comment: 'This is the best phone I have ever bought. I am in love with this product',
-      Rating: 4}],
-    PublishingImage: 'assets/images/product_details_img.png',
-    Thumbnail1: 'assets/images/thumbnail_1.png',
-    Thumbnail2: 'assets/images/thumbnail_2.png',
-    Thumbnail3: 'assets/images/thumbnail_3.png'
+    "Title": "Apple iPhone 6",
+    "Features": "Extremely thin, the iPhone 6 flaunts a seamless design with the smooth blend of anodised aluminium, stainless steel and the curved, polished glass. Incredibly light, the beautifully crafted iPhone 6 feels great in your hands. Thanks to its innovative design, the iPhone 6 provides an intuitive experience and is extremely easy to use. Featuring the thinnest and most advanced Multi-Touch display ever made, the Apple iPhone 6 promises a high-contrast output with incredible colors and brightness on its 4.7 inch Retina HD display. A resolution of 1334x750 pixels, clear wide-angle viewing and an improved polariser - the iPhone 6 truly offers a bigger and better display.",
+    "Images": [
+      "apple-iphone-6-1.jpeg",
+      "apple-iphone-6-2.jpeg",
+      "apple-iphone-6-3.jpeg",
+      "apple-iphone-6-4.jpeg"
+    ],
+    "Rating": 5,
+    "Reviews": [
+      {
+        "Author": "Sagar",
+        "Created": "6, 2015",
+        "Title": "It's simply Awesome Review After 4 months",
+        "Rating": 5,
+        "Comment": "I am Apple fan, because of it's reliability and software / hardware support. It's been more than 4 months now, I am using this phone. And I have not faced any issue. If you use iphone you will never regret it. It's worth the money you pay. In terms of speed and quality of software, it's way ahead from any other smart phones in Market."
+      },
+      {
+        "Author": "Kumar",
+        "Created": "Oct 21 2014",
+        "Title": "Amazing Phone- Iphone 6",
+        "Rating": 5,
+        "Comment": "Phone is Amazing, Super Fast, Light weight, sleek & dashing look."
+      },
+      {
+        "Author": "Bharath",
+        "Created": "Feb 5, 2015",
+        "Title": "Excellent product !!",
+        "Rating": 3,
+        "Comment": "As expected iPhone 6 is amazing...its sleek, sexy and superfast....the best thing about ordering from flipkart was that i got my product on 18th October...very next day of the release....it was very nicely packed...."
+      }
+    ],
+    "WeightAndDimension": [
+      "129 g",
+      "67x138.1x6.9"
+    ],
+    "Specification": [
+      "6.9 mm Thickness",
+      "4.7 inch Touchscreen",
+      "iOS 8",
+      "8 MP Primary Camera",
+      "16GB"
+    ],
+    "Price": 299,
+    "FeaturedItem": true,
+    "TopProduct": true,
+    "ItemCategory": [
+      "Mobile",
+      "Apple"
+    ],
+    "DefaultImage": "apple-iphone-6-1.jpeg"
+  },
+  {
+    "Title": "Lenovo A6000",
+    "Features": "Along with excellent multi-tasking, the 2 GB RAM of this Lenovo device ensures that applications and games run lag-free. The 16 GB ROM easily accommodates all your favourite pictures, music, videos and games. The Lenovo A6000 Plus comes with a 12.7 cm (5) HD display for viewing photos, browsing websites or playing games. This smartphone uses an IPS technology to deliver ultra-wide 178 degree viewing angles that are great for watching videos in large groups.",
+    "Images": [
+      "lenovo-a6000-1.jpeg",
+      "lenovo-a6000-2.jpeg",
+      "lenovo-a6000-3.jpeg",
+      "lenovo-a6000-5.jpeg",
+      "lenovo-a6000-6.jpeg",
+      "lenovo-a6000-4.jpeg"
+    ],
+    "Rating": 3,
+    "Reviews": [
+      {
+        "Author": "SAHA",
+        "Created": "May 18, 2015",
+        "Title": "ATTENTION ALL FUTURE BUYERS!!!!!!!",
+        "Rating": 1,
+        "Comment": "the pre-installed security app could not be removed and it will charge you for virus definition update..how could lenovo do this thing to there customer.?first we buy from u then again we have to pay for your app which is not good..you are cheating us..and there are good free antivirus in market..why should i pay for your crap..and it can't be uninstalled also..so once you buy a lenovo phone you are in their hand to pay for the anti virus software "
+      },
+      {
+        "Author": "Sethi",
+        "Created": "May 5, 2015",
+        "Title": "Maxima Battery Life.",
+        "Rating": 4,
+        "Comment": "I was using Xiomi Redmi 1s and was very happy with it. The only issue I had was that the battery backup was bad for Redmi 1s. I have been using this for 1 week now and would like to tell you guys that Its the best choice I made. The battery backup for this phone is just amazing, not to forget the 2GB RAM makes the phone super fast. You would love it if you like light weight phones. I feel happy when I return home and I dont have to put my phone on charging as it still has juice left. Also it gives you the option to move apps to SD card, so that is great"
+      }
+    ],
+    "WeightAndDimension": [
+      "128 g",
+      "70x141x8.2 mm"
+    ],
+    "Specification": [
+      "2 GB RAM, 16 GB ROM",
+      "Dual SIM, 4G LTE",
+      "5 inch HD IPS Display",
+      "Twin Dolby Speaker"
+    ],
+    "Price": 65,
+    "FeaturedItem": false,
+    "TopProduct": true,
+    "ItemCategory": [
+      "Mobile",
+      "Lenovo"
+    ],
+    "DefaultImage": "lenovo-a6000-1.jpeg"
+  },
+  {
+    "Title": "Mi 4i",
+    "Features": "The Mi 4i has a 12.7cm (5) Sharp / JDI display which employs a range of colors that use full lamination technology for better contrasts. It also uses a hardware-level technology to improve readability in sunlight. It is also protected by a Corning OGS glass, which makes it resilient against scratches and damage. Powered by a 64-bit, 2nd Gen Qualcomm Snapdragon 615 octa-core processor, the Mi 4i is not only the leader for quality smartphones, but also the benchmark for extreme performance. It has 4 performance cores clocking at 1.7 GHz and 4 power-saving cores at 1.1 GHz to ensure quicker multitasking between applications.",
+    "Images": [
+      "mi-4i-mzb4343in-1.jpeg",
+      "mi-4i-mzb4343in-2.jpeg",
+      "mi-4i-mzb4343in-3.jpeg",
+      "mi-4i-mzb4343in-4.jpeg"
+    ],
+    "Rating": 4,
+    "Reviews": [],
+    "WeightAndDimension": [
+      "130 g",
+      "69.6x138.1x7.8 mm"
+    ],
+    "Specification": [
+      "Unibody Design, Ultra-compact Frame",
+      "2nd-gen Snapdragon 615 Processor, 2GB RAM, 16GB Flash",
+      "5 inch Sharp/JDI 1080p Display",
+      "All-new Sunlight Display, Corning OGS Glass",
+      "13MP Sony /Samsung Camera f/2.0 aperture, Two-tone Flash",
+      "5MP Front Camera with Beautify",
+      "4.4V 3120 mAh Battery, 4G Dual SIM",
+      "MIUI 6 on Android L"
+    ],
+    "Price": 33,
+    "FeaturedItem": true,
+    "TopProduct": true,
+    "ItemCategory": [
+      "Mobile",
+      "Xiaomi"
+    ],
+    "DefaultImage": "mi-4i-mzb4343in-1.jpeg"
+  },
+  {
+    "Title": "Sony Xperia T2",
+    "Features": "Enriched with the Triluminos™ display technology for mobiles, the Xperia T2 Ultra delivers a wide palette of natural and rich colors. Seascapes and landscapes appear more vivid and faces come in natural skin tones. Get ready for a rich and vivid color experience on the Sony Xperia T2 Ultra Dual SIM smartphone",
+    "Images": [
+      "sony-xperia-z-1.jpeg",
+      "sony-xperia-z-2.jpeg",
+      "sony-xperia-z-3.jpeg",
+      "sony-xperia-z-4.jpeg"
+    ],
+    "Rating": 3,
+    "Reviews": [
+      {
+        "Author": "Maurya",
+        "Created": "Oct 6, 2015",
+        "Title": "Dead On Arrival due to crashing gapps",
+        "Rating": 2,
+        "Comment": "I bought this phone T2 Ultra. from mall store in Ghaziabad as my first ever Sony product. But, it turned out to be a nightmare for me. From day one, gapps started crashing forcing to close all other apps and subsequently"
+      }
+    ],
+    "WeightAndDimension": [
+      "171.7 g",
+      "83.8x165.2x7.65 mm"
+    ],
+    "Specification": [
+      "13 MP Primary Camera",
+      "Full HD Recording",
+      "6 inch TFT Capacitive Touchscreen",
+      "1.1 MP Secondary Camera",
+      "Android v4.3 (Jelly Bean) Upgadable to Android 5.0 OS",
+      "1.4 GHz Qualcomm Snapdragon MSM8228 Quad Core Processor",
+      "Expandable Storage Capacity of 32 GB",
+      "Wi-Fi Enabled"
+    ],
+    "Price": 42,
+    "FeaturedItem": false,
+    "TopProduct": false,
+    "ItemCategory": [
+      "Mobile",
+      "Sony"
+    ],
+    "DefaultImage": "sony-xperia-z-1.jpeg"
+  },
+  {
+    "Title": "Asus Zenfone 2 ZE551ML",
+    "Features": "Beautifully crafted, the Asus Zenfone 2 ZE551ML delivers a truly remarkable performance and gets you through the day without fail. This dual SIM smartphone runs on Android Lollipop and offers up to 16 GB internal storage.Indeed a marvel of design and ergonomics, this Asus smartphone is crafted with ultra-thin edges and flaunts the iconic Asus concentric circle design. The 3.9 mm thin edges make it comfortable to hold this device with one hand.",
+    "Images": [
+      "asus-1.jpeg",
+      "asus-2.jpeg",
+      "asus-3.jpeg",
+      "asus-4.jpeg"
+    ],
+    "Rating": 4,
+    "Reviews": [
+      {
+        "Author": "Harish Singh",
+        "Created": "May 5, 2015",
+        "Title": "Its just not a phone its a beast !!",
+        "Rating": 5,
+        "Comment": "15000 segment best smartphone ever for camera & battery I would give sensible and honest feedback so here are my early findings - The body of the phone is excellent as it Silver panel gives you a premium kind of look which you can always proudly hold it."
+      },
+      {
+        "Author": "Manish",
+        "Created": "April 5, 2015",
+        "Title": "Asus 2 a bad experience",
+        "Rating": 3,
+        "Comment": "Zenfone 2 a flagship Phablet killer from  Asus...... does it really a flagship product from Asus. I had been waiting  form last 4 month when it was not even announced. I was so obsessed... keep  counting days.Finally i received it after a week of launch date. Initially i  was very happy with its performance (Smooth touch,gr8 display with its 403  ppi resolution) but after using it for a week or two i start facing so many  problem. It has so many critical issues which i want to share with everyone."
+      },
+      {
+        "Author": "Supratik Bhattacharya",
+        "Created": "Feb 5, 2015",
+        "Title": "Call Drop Issue accompanied with Greedy",
+        "Rating": 5,
+        "Comment": "Don't buy this phone at the moment as it has some serious network bug in this phone. Don't know if it is software or hardware fault. Requested to return and refund, but they are hell bent on NOT doing that. As it is manufacturing defect, I have no option but to return it. is denying it to take it back. "
+      }
+    ],
+    "WeightAndDimension": [
+      "170 g",
+      "77.2x152.5x10.9 mm"
+    ],
+    "Specification": [
+      "Android v5 (Lollipop) OS",
+      "13 MP Primary Camera",
+      "5 MP Secondary Camera",
+      "Dual Sim (GSM + LTE)",
+      "5.5 inch Touchscreen",
+      "1.8 GHz Intel Atom Z3560 Quad Core Processor",
+      "Expandable Storage Capacity of 64 GB",
+      "4G (LTE) - 150 Mbps HSDPA",
+      "50 Mbps HSUPA"
+    ],
+    "Price": 250,
+    "FeaturedItem": false,
+    "TopProduct": false,
+    "ItemCategory": [
+      "Mobile",
+      "Asus"
+    ],
+    "DefaultImage": "asus-1.jpeg"
+  },
+  {
+    "Title": "Moto E (2nd Gen) 3G",
+    "Features": "Moto E features a powerful Qualcomm Snapdragon 200 processor with a 1.2GHz quad-core CPU and advanced graphics, which means you can switch back and forth between your favorite apps without slowing down. You can also listen to music and surf the web at the same time - without missing a beat. With a long-lasting 2390 mAh battery, the all-new Moto E is designed to last. Dash to school or work in the morning. Meet up with family or friends. Even head out for the evening, the Moto E has you covered.",
+    "Images": [
+      "motorola-moto-1.jpeg",
+      "motorola-moto-2.jpeg",
+      "motorola-moto-3.jpeg",
+      "motorola-moto-4.jpeg"
+    ],
+    "Rating": 3,
+    "Reviews": [
+      {
+        "Author": "Nandy",
+        "Created": "Mar 19, 2015",
+        "Title": "If I will able to convinced any one to buy this product.I will feel glad.",
+        "Rating": 3,
+        "Comment": "I was waiting for this phone for 10days before it released. Because we all are aware with the moto e 1st gen. And also with the other models, all the models has their different plus point to each other. Finally I have received my new moto e 2nd gen. As usual Flipkart always rock. Within 2days they delivered the product.\nTruly friend the phone looks awsm. It never looks like low budget phone. It looks like junior nexus. The phone gripe is very good, for the manufacture material. And the side gripe and also for the design of the phone. Very slim and mat finish.\n"
+      },
+      {
+        "Author": "Amit Arora",
+        "Created": "Mar 13, 2015",
+        "Title": "No one was responding of my Return requested Item...",
+        "Rating": 2,
+        "Comment": "Moto E 2nd generation mobile is not functioning well"
+      },
+      {
+        "Author": "Banerjee",
+        "Created": "Mar 19, 2015",
+        "Title": "Best Budget Phone, Again",
+        "Rating": 4,
+        "Comment": "Bought Moto e in july 2014 which is still working perfectly. This made me a huge fan of Motorola. Bought Moto E 2015 5 days back. So my points will be based on usage of 5 days.\nBuild quality of Motorola phone are superb. You will not get better durability and design than this. Perfect ratio.\nAudio quality,,,, ahhhhh this is the main reason i opted for Moto E again. The call quality is exceptional which is the main feature every smartphone should have. The speaker volume is extremely loud and the front firing speakers\n"
+      }
+    ],
+    "WeightAndDimension": [
+      "145 g",
+      "66.8x129.9x12.3 mm"
+    ],
+    "Specification": [
+      "5 MP Primary Camera",
+      "4.5 inch TFT LCD Touchscreen",
+      "VGA Front Facing Camera",
+      "1.2 GHz Quad Core Processor",
+      "Wi-Fi Enabled",
+      "Expandable Storage Capacity of 32 GB",
+      "Android v5.0 (Lollipop) OS",
+      "Dual Sim (GSM + UMTS)"
+    ],
+    "Price": 45,
+    "FeaturedItem": false,
+    "TopProduct": false,
+    "ItemCategory": [
+      "Mobile",
+      "Motorola"
+    ],
+    "DefaultImage": "motorola-moto-1.jpeg"
+  });
+});
+
+Navigation.find({}).remove(function() {
+  Navigation.create({
+      "Title":"Desktop & Laptop",
+      "SubMenu":[
+         {
+            "Title":"Desktops"
+         },
+         {
+            "Title":"Laptops"
+         },
+         {
+            "Title":"Accessories"
+         }
+      ]
+   },
+   {
+      "Title":"Mobile",
+      "SubMenu":[
+         {
+            "Title":"Phones"
+         },
+         {
+            "Title":"Accessories"
+         },
+         {
+            "Title":"Mobile Apps"
+         },
+         {
+            "Title":"Tablets"
+         }
+      ]
+   },
+   {
+      "Title":"Communication & Collaboration",
+      "SubMenu":[
+         {
+            "Title":"Communication"
+         },
+         {
+            "Title":"Conferencing"
+         },
+         {
+            "Title":"Collaboration"
+         }
+      ]
+   },
+   {
+      "Title":"Cloud Services",
+      "SubMenu":[
+         {
+            "Title":"Computing"
+         }
+      ]
+   });
+});
+
+UserProfile.find({}).remove(function() {
+  UserProfile.create({
+      "name" : "Kiran",
+      "email" : "Kiran@emc.com",
+      "ManagerialApprover1" : "mgr1@emc.com",
+      "ManagerialApprover2" : "mgr2@emc.com",
+      "FinancialApprover1" : "fna1@emc.com",
+      "FinancialApprover2" : "fna2@emc.com",
+      "CostCenter" : "1234"
   });
 });
 
