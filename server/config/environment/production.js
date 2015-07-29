@@ -23,5 +23,12 @@ module.exports = {
             'mongodb://localhost/newauthapp'
   },
 
-  seedDB: true
+  seedDB: true,
+  
+  ironmq: {
+    token: JSON.parse(process.env.VCAP_SERVICES).ironmq[0].credentials.token,
+    project_id: JSON.parse(process.env.VCAP_SERVICES).ironmq[0].credentials.project_id,
+    vra_queue_name: 'vra-queue',
+    usp_queue_name: 'usp-queue'
+  }
 };

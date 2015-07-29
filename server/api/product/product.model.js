@@ -23,7 +23,9 @@ var ProductSchema = new Schema({
   FeaturedItem: Boolean,
   TopProduct: Boolean,
   ItemCategory: [String],
-  DefaultImage: String
+  DefaultImage: String,
+  Type: String,
+  RelatedId: String
 });
 
 module.exports = mongoose.model('Product', ProductSchema);

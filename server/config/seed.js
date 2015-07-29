@@ -11,6 +11,18 @@ var Misc = require('../api/misc/misc.model');
 var Product = require('../api/product/product.model')
 var Navigation = require('../api/navigation/navigation.model')
 var UserProfile = require('../api/userprofile/userprofile.model')
+var Service = require('../api/service/service.model')
+
+Service.find({}).remove(function(){
+  Service.create({
+    _id: '4d7b4341-d512-46fd-b402-67315e6e6fea',
+    Name: 'Catalog Item 1',
+    Image: 'apple-iphone-6-1.jpeg',
+    FormDefault: {
+      Name: 'Enter VM Name'
+    }
+  });
+});
 
 Thing.find({}).remove(function() {
   Thing.create({
@@ -108,7 +120,9 @@ Product.find({}).remove(function() {
       "Mobile",
       "Apple"
     ],
-    "DefaultImage": "apple-iphone-6-1.jpeg"
+    "DefaultImage": "apple-iphone-6-1.jpeg",
+    "Type": "",
+    "RelatedId": ""
   },
   {
     "Title": "Lenovo A6000",
@@ -155,7 +169,9 @@ Product.find({}).remove(function() {
       "Mobile",
       "Lenovo"
     ],
-    "DefaultImage": "lenovo-a6000-1.jpeg"
+    "DefaultImage": "lenovo-a6000-1.jpeg",
+    "Type": "",
+    "RelatedId": ""
   },
   {
     "Title": "Mi 4i",
@@ -189,7 +205,9 @@ Product.find({}).remove(function() {
       "Mobile",
       "Xiaomi"
     ],
-    "DefaultImage": "mi-4i-mzb4343in-1.jpeg"
+    "DefaultImage": "mi-4i-mzb4343in-1.jpeg",
+    "Type": "",
+    "RelatedId": ""
   },
   {
     "Title": "Sony Xperia T2",
@@ -231,7 +249,9 @@ Product.find({}).remove(function() {
       "Mobile",
       "Sony"
     ],
-    "DefaultImage": "sony-xperia-z-1.jpeg"
+    "DefaultImage": "sony-xperia-z-1.jpeg",
+    "Type": "",
+    "RelatedId": ""
   },
   {
     "Title": "Asus Zenfone 2 ZE551ML",
@@ -288,7 +308,9 @@ Product.find({}).remove(function() {
       "Mobile",
       "Asus"
     ],
-    "DefaultImage": "asus-1.jpeg"
+    "DefaultImage": "asus-1.jpeg",
+    "Type": "",
+    "RelatedId": ""
   },
   {
     "Title": "Moto E (2nd Gen) 3G",
@@ -344,8 +366,39 @@ Product.find({}).remove(function() {
       "Mobile",
       "Motorola"
     ],
-    "DefaultImage": "motorola-moto-1.jpeg"
-  });
+    "DefaultImage": "motorola-moto-1.jpeg",
+    "Type": "",
+    "RelatedId": ""
+  },
+  {  
+      "Title":"Virtual Windows Server",
+      "Features":"Order a Virtual Server to host self-managed applications within IT data centers, quickly and cost-effectively. The Virtual Server is for EMC internal use only. Access to the Virtual Server from outside of the EMC core network is not available. Standard orders fulfilled in 1 business day. For non-standard orders, a delivery date will be provided within 5 business days.Commitment:Monthly  Estimated Delivery: From 1 Business Day",
+      "Rating":4,
+      "Price":19,
+      "FeaturedItem":true,
+      "TopProduct":true,
+      "DefaultImage":"VM_Logo.jpeg",
+      "ItemCategory":[  
+         "Cloud Services",
+         "Virtual Server"
+      ],
+      "Specification":[  
+         "Conveniently packaged sizesChoose from small, medium, large or extra large. Each package comes with 100 GB of usable storage. You choose the operating systemChoose between Windows 2008 Enterprise (64-bit) or RedHat Linux 6 (64-bit). Maintained and SupportedOperating System and infrastructure maintenance is managed by EMC IT and includes anti-virus management, host based intrusion scanning & prevention, OS/Security patching and standard VM monitoring. EMC IT supports the Operating System layer of the VM while the Application Administrator is responsible for all application related issues. The Application Administrator can contact the IT Service Desk 24x7 to raise incidents on server issues. Automatic backup and retentionBackups are performed using Avamar and are done on a daily basis, after local business hours in the US, EMEA and APJ respectively. The standard retention period for backups is 90 days.",
+         "New Request/Order Fulfillment Standard VM Orders:Once all business approvals are received, order will be delivered by IT within 1 business day. Existing or new Privileged/Unix accounts will be setup to access the newly provisioned infrastructure within the 1 business day SLA. Non-Standard VM Orders:After all business approvals are received, the provisioning team will assess the request and respond with an estimated delivery time within 5 business days. Change RequestsAll change requests for an existing virtual server (such as a change in Memory, CPU, Storage and ownership) will require business approvals and should be submitted through the BTG representative. These requests will be fulfilled in 14 business days; billing changes will be reflected in the following month. BillingThe BU will be billed for the whole month at the agreed rate. There will be no partial month billing based on the date of provisioning, change or cancellation. Any cancellation requests must be submitted before the 15th of a month to avoid carryover month billing. LicensingThe Business is responsible for all software licensing on the application layer including keeping licenses up to date, participating in any Risk audits and others as required by the Global Security Organization (GSO). IT is responsible for all licensing at the operating system layer. QualificationThis service is for business managed applications that do not require disaster recovery capabilities and have neither SOX nor revenue impact. This service is for business managed applications that do not store government-regulated, confidential, restricted information including employee, financial, contractual or other sensitive information such as source code, credit cards, social security numbers, etc. on the Virtual Servers. Additionally, at this time, due to enterprise licensing constraints, you may not deploy Oracle or SQL Server databases on these virtual servers. This service is for business managed applications where a 24-hour outage of the application or subsequent data loss will not: Materially impact business operations, impede or render core or ancillary business processes inoperable, or damage EMC's reputation in the industry or impact total customer experience. MaintenanceRegular maintenance includes Firmware and OS patches that are applied quarterly, with prior notification to Application Administrator, in accordance with IT policies and standards. Regular maintenance also includes anti-virus management and standard VM monitoring. Standard VM monitoring includes Virtual Machine Availability (Up/Down) and Virtual Machine host level monitoring of CPU, Memory, Network and Storage Space which provides IT with troubleshooting guidance for the availability and performance of a VM. A 48 hour notice will be provided for any necessary maintenance outside the regular maintenance schedule. SecurityThis includes host based, intrusion scanning & prevention and security patching. Depending on the vulnerability threat, there might be situations when security patching will occur without prior notification, with the intention to secure EMC assets quickly. Backup and RestoreDaily backups are performed via Avamar after local business hours in the US, EMEA and APJ respectively. Standard retention period is 90 days. Application Administrator has self-restore capability on Windows VMs. For Linux VMs, Application Administrator should contact IT Global Service Desk to initiate a restore request. response to such requests will be within 2 hours. The time to fulfill restore requests is dependent on the amount of data and is typically 48 hours for 1 TB of data. SupportIT supports the Operating System layer of the VM. The Application Administrator is responsible for all application related issues. Business end users should contact the Application Administrator for any application issues. The Application Administrator can coordinate any necessary support for the Operating System layer through the IT Service Desk and the IT Global Command Center. The Application Administrator can contact the IT Service Desk 24x7 to raise incidents on server issues.  Server issue response time through IT is typically 2 business hours. This service does not provide any DR or load balancing capabilities. Response TimesThese are the response objectives in the event of a major failure with the infrastructure. Recovery Point Objective (RPO) – 24 business hoursRecovery Time Objective (RTO) – 40 business hours Major failures could include:-Hardware failures with ESX host/cluster, Storage arrays, Network switches, and other related equipment.-Software failures such as corrupted operating system-Network outages etc. Catastrophic events such as natural disasters and whole data center failures will not be covered under this. The response times for such events will be dependent on the severity of the event and be determined on a case-by-case ",
+         "Business managed applicationsApplications that do not require disaster recovery capabilities and do not have SOX or revenue impact. You may not store EMC confidential, government regulated, restricted information including employee, financial, contractual or other sensitive information such as source code, credit cards, social security numbers, etc on the Virtual Servers. You may not deploy Oracle or SQL Server databases on the Virtual Servers. You may not install and operate an Oracle or Microsoft SQL Server database. The Virtual Server is for EMC internal use only. Access to the Virtual Server from outside of the EMC core network is not available. Business operations impactApplications where 24-hour outage or data loss will not materially impact business operations, impede or render core or ancillary business processes inoperable, or damage EMC's reputation in the industry or impact EMC's total customer experience."
+      ],
+      "WeightAndDimension":[  
+
+      ],
+      "Reviews":[  
+
+      ],
+      "Images":[  
+
+      ],
+      "Type": "Service",
+      "RelatedId": "4d7b4341-d512-46fd-b402-67315e6e6fea"
+   });
 });
 
 Navigation.find({}).remove(function() {
@@ -398,7 +451,22 @@ Navigation.find({}).remove(function() {
       "Title":"Cloud Services",
       "SubMenu":[
          {
-            "Title":"Computing"
+            "Title":"Cloud Core Lab Infratructure"
+         },
+         {
+            "Title":"Cloud Storage (ViPR)"
+         },
+         {
+            "Title":"ECM as a Service"
+         },
+         {
+            "Title":"Platform as a Service"
+         },
+         {
+            "Title":"Virtual Server"
+         },
+         {
+            "Title":"Xpress DataBase"
          }
       ]
    });
