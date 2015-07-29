@@ -26,8 +26,8 @@ module.exports = {
   seedDB: true,
   
   ironmq: {
-    token: JSON.parse(process.env.VCAP_SERVICES).ironmq[0].credentials.token,
-    project_id: JSON.parse(process.env.VCAP_SERVICES).ironmq[0].credentials.project_id,
+    token: JSON.parse(process.env.VCAP_SERVICES).ironmq[0].credentials.token || 'dyM7fJMKZtjx-Qd5pkUfOb-Boak',
+    project_id: JSON.parse(process.env.VCAP_SERVICES).ironmq[0].credentials.project_id || '55b5ba3a258a0c0006000024',
     vra_queue_name: 'vra-queue',
     usp_queue_name: 'usp-queue'
   }
