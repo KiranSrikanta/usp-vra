@@ -6,3 +6,5 @@ applications:
     GOOGLE_ID: 968838694248-p7vk8lo1f1c99novdt0e33sqmaqvcn82.apps.googleusercontent.com
     GOOGLE_SECRET: lsmWC7juFvornQBYm1OEcGfz
     DOMAIN: http://usp-mean-auth.cfapps.io
+    SENDER_TIMER_SCHEDULE: 0 5,15,25,35,45,55 * * * *
+    RECEIVER_TIMER_SCHEDULE: 0 0,10,20,30,40,50 * * * *

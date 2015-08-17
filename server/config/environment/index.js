@@ -48,6 +48,11 @@ var all = {
     clientID:     process.env.GOOGLE_ID || '968838694248-p7vk8lo1f1c99novdt0e33sqmaqvcn82.apps.googleusercontent.com',
     clientSecret: process.env.GOOGLE_SECRET || 'lsmWC7juFvornQBYm1OEcGfz',
     callbackURL:  (process.env.DOMAIN || 'localhost:9000') + '/auth/google/callback'
+  },
+  
+  timer_job_schedules: {
+    sender: process.env.SENDER_TIMER_SCHEDULE || '0 */6 * * * *',
+    receiver: process.env.RECEIVER_TIMER_SCHEDULE || '0 */5 * * * *'
   }
 };
 

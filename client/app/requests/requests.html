@@ -1,0 +1,30 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Requests</h1>
+	  <table class="table">
+		  <thead>
+			  <tr>
+				  <td>ID</td>
+				  <td>Service</td>
+				  <td>Status</td>
+				  <td>Last Updated</td>
+			  </tr>
+		  </thead>
+		  <tbody>
+			  <tr data-ng-repeat="request in requests" ng-class="{'warning': request.Status == 'In Progress'}">
+				  <td>{{request._id}}</td>
+				  <td>{{request.serviceObj.Name}}</td>
+				  <td>{{request.Status}}</td>
+				  <td>{{request.LastUpdated}}</td>
+			  </tr>
+        <tr>
+          <td colspan="4"><button type="button" class="btn btn-info btn-block" ng-show="showRefresh" ng-click="refresh()">Refresh</button></td>
+        </tr>
+		  </tbody>
+	  </table>
+    </div>
+  </div>
+</div>

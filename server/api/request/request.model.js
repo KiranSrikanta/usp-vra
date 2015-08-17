@@ -9,6 +9,7 @@ var RequestSchema = new Schema({
   Status: String,
   PercentComplete: Number,
   TaskId: String,
+  LastUpdated: { type: Date, default: Date.now },
   Form: Schema.Types.Mixed
 });
 

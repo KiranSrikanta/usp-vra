@@ -2,6 +2,7 @@
 
 var _ = require('lodash');
 var Request = require('./request.model');
+var vra_message_sender = require('../../timer-jobs/vra-message-sender');
 
 // Get list of requests
 exports.index = function(req, res) {
@@ -55,6 +56,24 @@ exports.destroy = function(req, res) {
       if(err) { return handleError(res, err); }
       return res.send(204);
     });
+  });
+};
+
+// Send status request messages for all requests which are not complete
+exports.refresh = function(req, res, next) {
+  vra_message_sender.worker().then(function(data){
+    return res.json(201, data);
+  }, function(err){
+    return res.json(501, err);
+  });
+};
+
+// Send status request messages for a request
+exports.refresh_single = function(req, res, next) {
+  vra_message_sender.single_worker(req.params.id).then(function(data){
+    return res.json(201, data);
+  }, function(err){
+    return res.json(501, err);
   });
 };
 

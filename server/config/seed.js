@@ -8,20 +8,25 @@
 var Thing = require('../api/thing/thing.model');
 var User = require('../api/user/user.model');
 var Misc = require('../api/misc/misc.model');
-var Product = require('../api/product/product.model')
-var Navigation = require('../api/navigation/navigation.model')
-var UserProfile = require('../api/userprofile/userprofile.model')
-var Service = require('../api/service/service.model')
+var Product = require('../api/product/product.model');
+var Navigation = require('../api/navigation/navigation.model');
+var UserProfile = require('../api/userprofile/userprofile.model');
+var Service = require('../api/service/service.model');
+var Requests = require('../api/request/request.model');
 
 Service.find({}).remove(function(){
   Service.create({
     _id: '4d7b4341-d512-46fd-b402-67315e6e6fea',
     Name: 'Catalog Item 1',
     Image: 'apple-iphone-6-1.jpeg',
-    FormDefault: {
-      Name: 'Enter VM Name'
-    }
-  });
+    FormDefault: {}
+  }, function() {
+      console.log('finished populating services');
+    });
+});
+
+Requests.find({}).remove(function(){
+  console.log('cleared all requests.');
 });
 
 Thing.find({}).remove(function() {
@@ -43,7 +48,9 @@ Thing.find({}).remove(function() {
   },{
     name : 'Deployment Ready',
     info : 'Easily deploy your app to Heroku or Openshift with the heroku and openshift subgenerators'
-  });
+  }, function() {
+      console.log('finished populating things');
+    });
 });
 
 Misc.find({}).remove(function() {
@@ -65,7 +72,9 @@ Misc.find({}).remove(function() {
   },{
     name : 'Deployment Ready',
     info : 'Easily deploy your app to Heroku or Openshift with the heroku and openshift subgenerators'
-  });
+  }, function() {
+      console.log('finished populating misc');
+    });
 });
 
 Product.find({}).remove(function() {
@@ -377,7 +386,7 @@ Product.find({}).remove(function() {
       "Price":19,
       "FeaturedItem":true,
       "TopProduct":true,
-      "DefaultImage":"VM_Logo.jpeg",
+      "DefaultImage":"VM_Logo.jpg",
       "ItemCategory":[  
          "Cloud Services",
          "Virtual Server"
@@ -398,7 +407,9 @@ Product.find({}).remove(function() {
       ],
       "Type": "Service",
       "RelatedId": "4d7b4341-d512-46fd-b402-67315e6e6fea"
-   });
+   }, function() {
+      console.log('finished populating products');
+    });
 });
 
 Navigation.find({}).remove(function() {
@@ -469,7 +480,9 @@ Navigation.find({}).remove(function() {
             "Title":"Xpress DataBase"
          }
       ]
-   });
+   }, function() {
+      console.log('finished populating the navigations');
+    });
 });
 
 UserProfile.find({}).remove(function() {
@@ -481,7 +494,9 @@ UserProfile.find({}).remove(function() {
       "FinancialApprover1" : "fna1@emc.com",
       "FinancialApprover2" : "fna2@emc.com",
       "CostCenter" : "1234"
-  });
+  }, function() {
+      console.log('finished populating user profile');
+    });
 });
 
 User.find({}).remove(function() {
